@@ -1,0 +1,11 @@
+
+> assignflow@1.0.0 start
+> node server.js
+
+[dotenv@17.2.3] injecting env (10) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+Cloudinary: READY
+PORT = 5000
+Cloudinary check: true
+http://localhost:5000
+Server running on port 5000
+✅ MongoDB Connected

@@ -1,0 +1,90 @@
+/* =========================================================
+   ADMIN DASHBOARD - REMOVE TOP GAP
+   ========================================================= */
+
+html,
+body,
+#root {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  min-height: 100vh !important;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Main admin wrapper */
+.app-layout {
+  width: 100% !important;
+  min-height: 100vh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Admin navbar starts directly from the top */
+.app-navbar {
+  width: 100% !important;
+  height: 84px !important;
+
+  margin: 0 !important;
+  margin-top: 0 !important;
+  padding: 0 !important;
+
+  position: relative !important;
+  top: 0 !important;
+}
+
+/* Navbar inner */
+.app-navbar .nav-inner {
+  width: 100% !important;
+  height: 100% !important;
+
+  margin: 0 !important;
+
+  padding-left: 5% !important;
+  padding-right: 5% !important;
+}
+
+/* Admin dashboard content */
+.app-content {
+  width: 100% !important;
+
+  margin: 0 !important;
+
+  padding-top: 44px !important;
+  padding-left: 5% !important;
+  padding-right: 5% !important;
+}
+
+/* Dashboard itself */
+.app-content .admin-dashboard-card,
+.app-content .dashboard-card {
+  width: 100% !important;
+  max-width: none !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+}
+/* =========================================================
+   STUDENT ROUTES - APP WRAPPER MUST NOT ADD GAP
+========================================================= */
+
+.app-layout {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.app-content {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Student pages */
+.app-content:has(.student-layout) {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  max-width: none !important;
+}

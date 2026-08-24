@@ -1,0 +1,1118 @@
+/* =========================================================
+   PROFESSOR DASHBOARD
+========================================================= */
+
+.professor-page {
+  width: 100%;
+  min-height: calc(100vh - 80px);
+
+  margin: 0;
+  padding: 32px 60px 50px;
+
+  background: #f8fafc;
+
+  color: #0f172a;
+}
+
+
+/* =========================================================
+   DASHBOARD HEADER
+========================================================= */
+
+.professor-dashboard-heading {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  margin-bottom: 28px;
+}
+
+.professor-dashboard-heading h1 {
+  margin: 0 0 8px;
+
+  font-size: 30px;
+  line-height: 1.2;
+
+  font-weight: 700;
+
+  color: #0f172a;
+}
+
+.professor-dashboard-heading p {
+  margin: 0;
+
+  font-size: 16px;
+
+  color: #64748b;
+}
+
+
+/* =========================================================
+   CREATE ASSIGNMENT BUTTON
+========================================================= */
+
+.professor-create-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 48px;
+
+  padding: 0 22px;
+
+  border-radius: 12px;
+
+  background: linear-gradient(
+    135deg,
+    #4f46e5,
+    #8b5cf6
+  );
+
+  color: white;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  box-shadow:
+    0 8px 18px rgba(79, 70, 229, 0.18);
+
+  white-space: nowrap;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.professor-create-button:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 10px 22px rgba(79, 70, 229, 0.25);
+}
+
+
+/* =========================================================
+   STATISTICS
+========================================================= */
+
+.professor-stats {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, minmax(0, 1fr));
+
+  gap: 14px;
+
+  margin-bottom: 30px;
+}
+
+
+.professor-stat {
+  min-height: 110px;
+
+  padding: 22px 22px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+
+  border-left: 4px solid;
+
+  border-radius: 12px;
+
+  box-shadow:
+    0 2px 5px rgba(15, 23, 42, 0.08);
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+
+.professor-stat span {
+  margin-bottom: 8px;
+
+  color: #334155;
+
+  font-size: 14px;
+
+  font-weight: 500;
+}
+
+
+.professor-stat strong {
+  font-size: 30px;
+
+  line-height: 1;
+
+  font-weight: 700;
+}
+
+
+/* PENDING */
+
+.professor-stat.pending {
+  border-left-color: #3b82f6;
+}
+
+.professor-stat.pending strong {
+  color: #2563eb;
+}
+
+
+/* APPROVED */
+
+.professor-stat.approved {
+  border-left-color: #22c55e;
+}
+
+.professor-stat.approved strong {
+  color: #16a34a;
+}
+
+
+/* FORWARDED */
+
+.professor-stat.forwarded {
+  border-left-color: #a855f7;
+}
+
+.professor-stat.forwarded strong {
+  color: #9333ea;
+}
+
+
+/* REJECTED */
+
+.professor-stat.rejected {
+  border-left-color: #ef4444;
+}
+
+.professor-stat.rejected strong {
+  color: #dc2626;
+}
+
+
+/* TOTAL */
+
+.professor-stat.total {
+  border-left-color: #64748b;
+}
+
+.professor-stat.total strong {
+  color: #334155;
+}
+
+
+/* =========================================================
+   FILTER CARD
+========================================================= */
+
+.professor-filter-card {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 2fr)
+    minmax(180px, 1fr)
+    minmax(180px, 1fr);
+
+  gap: 22px;
+
+  margin-bottom: 34px;
+
+  padding: 28px 32px;
+
+  background: #ffffff;
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 3px 8px rgba(15, 23, 42, 0.08);
+}
+
+
+.professor-filter {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+
+.professor-filter label {
+  color: #0f172a;
+
+  font-size: 15px;
+
+  font-weight: 600;
+}
+
+
+.professor-filter input,
+.professor-filter select {
+  width: 100%;
+
+  min-height: 62px;
+
+  padding: 0 20px;
+
+  border: 1px solid #cbd5e1;
+
+  border-radius: 12px;
+
+  outline: none;
+
+  background: #ffffff;
+
+  color: #0f172a;
+
+  font-size: 16px;
+
+  font-family: inherit;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.professor-filter input::placeholder {
+  color: #94a3b8;
+}
+
+
+.professor-filter input:focus,
+.professor-filter select:focus {
+  border-color: #6366f1;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(99, 102, 241, 0.1);
+}
+
+
+/* =========================================================
+   ASSIGNMENT QUEUE
+========================================================= */
+
+.professor-queue {
+  width: 100%;
+
+  background: #ffffff;
+
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 2px 6px rgba(15, 23, 42, 0.06);
+}
+
+
+.professor-queue-header {
+  padding: 24px 32px;
+
+  border-bottom: 1px solid #e5e7eb;
+}
+
+
+.professor-queue-header h2 {
+  margin: 0;
+
+  font-size: 25px;
+
+  font-weight: 600;
+
+  color: #0f172a;
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.professor-table-wrapper {
+  width: 100%;
+
+  overflow-x: auto;
+}
+
+
+.professor-table {
+  width: 100%;
+
+  min-width: 1050px;
+
+  border-collapse: collapse;
+
+  table-layout: auto;
+}
+
+
+.professor-table thead th {
+  padding: 18px 16px;
+
+  background: #f1f5f9;
+
+  border-bottom: 1px solid #e2e8f0;
+
+  color: #0f172a;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  text-align: left;
+
+  white-space: nowrap;
+}
+
+
+.professor-table tbody td {
+  padding: 18px 16px;
+
+  border-bottom: 1px solid #e5e7eb;
+
+  color: #334155;
+
+  font-size: 15px;
+
+  vertical-align: middle;
+}
+
+
+.professor-table tbody tr {
+  background: #ffffff;
+
+  transition:
+    background 0.15s ease;
+}
+
+
+.professor-table tbody tr:hover {
+  background: #f8fafc;
+}
+
+
+.professor-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* =========================================================
+   STUDENT
+========================================================= */
+
+.professor-student-cell {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+
+.professor-student-cell strong {
+  color: #0f172a;
+
+  font-size: 16px;
+
+  font-weight: 600;
+}
+
+
+.professor-student-cell small {
+  color: #64748b;
+
+  font-size: 12px;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.professor-title {
+  color: #0f172a;
+
+  font-size: 16px;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.professor-status {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  padding: 8px 14px;
+
+  border-radius: 999px;
+
+  font-size: 14px;
+
+  font-weight: 500;
+
+  white-space: nowrap;
+}
+
+
+/* PENDING */
+
+.professor-status.submitted {
+  background: #dbeafe;
+
+  color: #2563eb;
+}
+
+
+/* APPROVED */
+
+.professor-status.approved {
+  background: #dcfce7;
+
+  color: #15803d;
+}
+
+
+/* FORWARDED */
+
+.professor-status.forwarded {
+  background: #f3e8ff;
+
+  color: #7e22ce;
+}
+
+
+/* REJECTED */
+
+.professor-status.rejected {
+  background: #fee2e2;
+
+  color: #b91c1c;
+}
+
+
+/* DRAFT */
+
+.professor-status.draft {
+  background: #f1f5f9;
+
+  color: #475569;
+}
+
+
+/* =========================================================
+   DATE
+========================================================= */
+
+.professor-date {
+  color: #64748b;
+
+  font-size: 15px;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   DAYS PENDING
+========================================================= */
+
+.professor-pending-days {
+  color: #2563eb;
+
+  font-weight: 500;
+
+  white-space: nowrap;
+}
+
+
+.professor-decision-date {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  color: #15803d;
+
+  font-size: 15px;
+
+  font-weight: 500;
+
+  white-space: nowrap;
+}
+
+
+.decision-check {
+  color: #7c3aed;
+
+  font-size: 20px;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.professor-actions {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: flex-end;
+
+  gap: 14px;
+}
+
+
+.professor-details-button {
+  min-width: 126px;
+
+  height: 48px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 0 20px;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  color: #334155;
+
+  font-size: 15px;
+
+  font-weight: 500;
+
+  text-decoration: none;
+
+  box-shadow:
+    0 1px 3px
+    rgba(15, 23, 42, 0.08);
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+.professor-details-button:hover {
+  background: #f8fafc;
+
+  border-color: #cbd5e1;
+}
+
+
+/* REVIEW ARROW */
+
+.professor-review-button {
+  width: 52px;
+
+  height: 52px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border: 1px solid #ede9fe;
+
+  border-radius: 10px;
+
+  background: #faf5ff;
+
+  color: #9333ea;
+
+  font-size: 25px;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.professor-review-button:hover {
+  background: #f3e8ff;
+
+  transform: translateX(2px);
+}
+
+
+/* =========================================================
+   EMPTY
+========================================================= */
+
+.professor-empty {
+  height: 180px;
+
+  text-align: center !important;
+
+  color: #64748b !important;
+
+  font-size: 15px !important;
+}
+
+
+/* =========================================================
+   API ERROR
+========================================================= */
+
+.professor-api-error {
+  width: 100%;
+
+  padding: 30px;
+
+  background: #ffffff;
+
+  border-left: 5px solid #ef4444;
+
+  border-radius: 12px;
+
+  box-shadow:
+    0 2px 6px
+    rgba(15, 23, 42, 0.08);
+}
+
+
+.professor-api-error h2 {
+  margin: 0 0 10px;
+
+  color: #991b1b;
+
+  font-size: 22px;
+}
+
+
+.professor-api-error p {
+  margin: 0 0 20px;
+
+  color: #64748b;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.professor-loading {
+  min-height: 400px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: #ffffff;
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 2px 6px
+    rgba(15, 23, 42, 0.06);
+}
+
+
+.professor-loading p {
+  margin-top: 14px;
+
+  color: #64748b;
+}
+
+
+.professor-spinner {
+  width: 38px;
+
+  height: 38px;
+
+  border: 4px solid #e2e8f0;
+
+  border-top-color: #4f46e5;
+
+  border-radius: 50%;
+
+  animation:
+    professor-spin 0.8s linear infinite;
+}
+
+
+@keyframes professor-spin {
+
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+
+/* =========================================================
+   PROFESSOR DETAIL PAGE
+========================================================= */
+
+.professor-detail {
+  width: min(1120px, 100%);
+
+  margin: 20px auto;
+
+  padding: 28px;
+
+  background: #ffffff;
+
+  border-radius: 16px;
+
+  border-left: 4px solid #4f46e5;
+
+  box-shadow:
+    0 2px 8px
+    rgba(15, 23, 42, 0.08);
+}
+
+
+.professor-detail
+.student-detail-header {
+  padding-bottom: 20px;
+
+  border-bottom:
+    1px solid #e5e7eb;
+}
+
+
+.professor-detail dl div {
+  background: #f8fafc;
+
+  border-radius: 8px;
+}
+
+
+.professor-detail section {
+  padding: 20px 0;
+
+  border-top:
+    1px solid #e5e7eb;
+}
+
+
+/* =========================================================
+   REVIEW FORM
+========================================================= */
+
+.review-form {
+  margin-top: 24px;
+
+  padding: 24px;
+
+  border-radius: 12px;
+
+  background: #eff6ff;
+
+  border: 1px solid #bfdbfe;
+}
+
+
+.review-form h2 {
+  margin: 0 0 8px;
+
+  font-size: 20px;
+
+  color: #111827;
+}
+
+
+.review-form textarea {
+  min-height: 100px;
+
+  resize: vertical;
+}
+
+
+.otp-form {
+  margin-top: 24px;
+
+  max-width: 380px;
+}
+
+
+/* =========================================================
+   NOTIFICATIONS
+========================================================= */
+
+.professor-page .notification-list {
+  border: 0;
+
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 2px 6px
+    rgba(15, 23, 42, 0.08);
+}
+
+
+.professor-page
+.notification-list article {
+  padding: 18px;
+
+  border-bottom:
+    1px solid #e5e7eb;
+}
+
+
+.professor-page
+.notification-list article.unread {
+  background: #eff6ff;
+}
+
+
+
+/* =========================================================
+   SUBMITTED ASSIGNMENT / FILE SECTION
+   Fixes text + button collision on ProfessorAssignment
+========================================================= */
+
+.professor-detail .submitted-file-section {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 28px 0;
+  border-top: 1px solid #e5e7eb;
+  box-sizing: border-box;
+}
+
+.professor-detail .submitted-file-section h2 {
+  margin: 0 0 12px;
+  color: #0f172a;
+  font-size: 20px;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.professor-detail .submitted-file-section p {
+  display: block;
+  margin: 0 0 20px;
+  padding: 0;
+  color: #334155;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.professor-detail .submitted-file-section .primary-button,
+.professor-detail > .primary-button {
+  position: static !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  width: max-content;
+  min-height: 48px;
+  margin: 0;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #4f46e5, #8b5cf6);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  box-sizing: border-box;
+  box-shadow: 0 6px 14px rgba(79, 70, 229, 0.18);
+  cursor: pointer;
+}
+
+.professor-detail .submitted-file-section .primary-button:hover,
+.professor-detail > .primary-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(79, 70, 229, 0.24);
+}
+
+.professor-detail .assignment-approved-message {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 14px 18px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 10px;
+  color: #15803d;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+
+.professor-detail > section {
+  position: static;
+  clear: both;
+  overflow: visible;
+}
+
+@media (max-width: 600px) {
+  .professor-detail .submitted-file-section .primary-button,
+  .professor-detail > .primary-button {
+    width: 100%;
+    min-height: 50px;
+  }
+
+  .professor-detail .submitted-file-section {
+    padding: 24px 0;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1200px) {
+
+  .professor-page {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .professor-stats {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+
+}
+
+
+@media (max-width: 900px) {
+
+  .professor-page {
+    padding: 24px 20px 40px;
+  }
+
+
+  .professor-dashboard-heading {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+
+  .professor-create-button {
+    width: max-content;
+  }
+
+
+  .professor-stats {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+
+  .professor-filter-card {
+    grid-template-columns: 1fr;
+
+    padding: 22px;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .professor-page {
+    padding: 20px 14px 30px;
+  }
+
+
+  .professor-dashboard-heading h1 {
+    font-size: 25px;
+  }
+
+
+  .professor-dashboard-heading p {
+    font-size: 14px;
+  }
+
+
+  .professor-create-button {
+    width: 100%;
+  }
+
+
+  .professor-stats {
+    grid-template-columns: 1fr;
+  }
+
+
+  .professor-stat {
+    min-height: 95px;
+  }
+
+
+  .professor-filter-card {
+    padding: 18px;
+
+    gap: 16px;
+  }
+
+
+  .professor-filter input,
+  .professor-filter select {
+    min-height: 52px;
+
+    font-size: 14px;
+  }
+
+
+  .professor-queue-header {
+    padding: 20px;
+  }
+
+
+  .professor-queue-header h2 {
+    font-size: 21px;
+  }
+
+
+  .professor-table {
+    min-width: 1000px;
+  }
+
+}
