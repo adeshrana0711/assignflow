@@ -1,9 +1,7 @@
 import multer from "multer";
 
-// Memory storage for AI check (buffer needed)
 const memoryStorage = multer.memoryStorage();
 
-// PDF file filter (existing)
 function fileFilter(req, file, cb) {
   if (!file.mimetype.includes("pdf")) {
     return cb(new Error("Only PDF files allowed"));
@@ -11,7 +9,6 @@ function fileFilter(req, file, cb) {
   cb(null, true);
 }
 
-// Image filter for signatures (existing)
 function imageFilter(req, file, cb) {
   const allowedTypes = ["image/jpeg", "image/png", "image/jpg"];
   if (allowedTypes.includes(file.mimetype)) {
