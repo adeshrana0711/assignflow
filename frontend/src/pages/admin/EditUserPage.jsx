@@ -18,8 +18,8 @@ function EditUserPage() {
     const loadData = async () => {
       try {
         const [userResponse, deptResponse] = await Promise.all([
-          fetch(`/admin/users/api/${id}`, { credentials: 'include' }),
-          fetch('/admin/departments/api/all', { credentials: 'include' }),
+          fetch(`/api/admin/users/api/${id}`, { credentials: 'include' }),
+          fetch('/api/admin/departments/api/all', { credentials: 'include' }),
         ])
 
         const userJson = await userResponse.json()

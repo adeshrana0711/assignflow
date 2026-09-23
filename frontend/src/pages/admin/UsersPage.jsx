@@ -15,7 +15,7 @@ function UsersPage() {
 
   const loadDepartments = async () => {
     try {
-      const response = await fetch('/admin/departments/api/all', {
+      const response = await fetch('/api/admin/departments/api/all', {
         credentials: 'include',
       })
       const json = await response.json()
