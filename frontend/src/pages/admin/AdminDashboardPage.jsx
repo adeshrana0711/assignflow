@@ -11,7 +11,7 @@ function AdminDashboardPage() {
   })
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
-  
+
 useEffect(() => {
   const fetchStats = async () => {
     try {
@@ -23,10 +23,18 @@ useEffect(() => {
         },
       })
 
-      if (!response.ok) {
-        const errorBody = await response.json().catch(() => null)
-        throw new Error(errorBody?.error || 'Unable to load stats')
-      }
+  if (!response.ok) {
+  const errorBody = await response.json().catch(() => null)
+
+  const errorMessage =
+    typeof errorBody?.error === 'string'
+      ? errorBody.error
+      : typeof errorBody?.message === 'string'
+      ? errorBody.message
+      : JSON.stringify(errorBody?.error || errorBody) || 'Unable to load stats'
+
+  throw new Error(errorMessage)
+}
 
       const data = await response.json()
       setStats(data)
