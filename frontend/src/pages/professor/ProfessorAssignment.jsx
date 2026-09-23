@@ -416,7 +416,7 @@ export default function ProfessorAssignment({
 
     <a
       className="primary-button"
-      href={`/professor/assignments/${id}/file`}
+      href={`/api/professor/assignments/${id}/file`}
       target="_blank"
       rel="noreferrer"
     >
