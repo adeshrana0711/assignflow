@@ -150,7 +150,7 @@ export default function ProfessorAssignment({
       body.append("decision", decision);
 
       const response = await fetch(
-        `/professor/review/${id}`,
+        `/api/professor/review/${id}`,
         {
           method: "POST",
 
