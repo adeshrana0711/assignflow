@@ -1,16 +1,15 @@
-import dotenv from "dotenv";
-dotenv.config();
-
-console.log('Cloudinary:', process.env.CLOUDINARY_CLOUD_NAME ? 'READY' : 'MISSING');
-
-console.log("PORT =", process.env.PORT);
-console.log('Cloudinary check:', !!process.env.CLOUDINARY_CLOUD_NAME);
-// console.log("RESEND =", process.env.RESEND_API_KEY);
-console.log("http://localhost:5000")
 import express from "express";
 import cookieParser from "cookie-parser";
 import path from "path";
 import { fileURLToPath } from "url";
+
+import dotenv from "dotenv";
+dotenv.config();
+
+
+console.log('Cloudinary:', process.env.CLOUDINARY_CLOUD_NAME ? 'READY' : 'MISSING');
+console.log("PORT =", process.env.PORT);
+console.log('Cloudinary check:', !!process.env.CLOUDINARY_CLOUD_NAME);
 
 import connectDB from "./config/db.config.js";
 import authRoutes from "./routes/auth.routes.js";
