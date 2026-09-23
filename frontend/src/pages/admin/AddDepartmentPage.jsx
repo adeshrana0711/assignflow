@@ -15,7 +15,7 @@ function AddDepartmentPage() {
     setLoading(true)
 
     try {
-      const response = await fetch('/admin/departments/api', {
+      const response = await fetch('/api/admin/departments/api', {
         method: 'POST',
         credentials: 'include',
         headers: {
