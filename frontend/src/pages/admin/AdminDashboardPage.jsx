@@ -15,7 +15,7 @@ function AdminDashboardPage() {
 useEffect(() => {
   const fetchStats = async () => {
     try {
-      const response = await fetch('/admin/dashboard/stats', {
+      const response = await fetch('/api/admin/dashboard/stats', {
         credentials: 'include',
         headers: {
           Accept: 'application/json',
