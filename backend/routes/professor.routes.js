@@ -18,13 +18,13 @@ import { getProfessorDashboardApi, getProfessorAssignmentApi, getProfessorNotifi
 
 const router = express.Router();
 
-router.get("/api/dashboard", protect, professorOnly, getProfessorDashboardApi);
-router.get("/api/departments", protect, professorOnly, getProfessorDepartmentsApi);
-router.get("/api/students", protect, professorOnly, getProfessorStudentsApi);
-router.get("/api/assignments/:id", protect, professorOnly, getProfessorAssignmentApi);
-router.get("/api/notifications", protect, professorOnly, getProfessorNotificationsApi);
-router.post("/api/notifications/mark-all-read", protect, professorOnly, markAllProfessorNotificationsApi);
-router.post("/api/notifications/:id/mark-read", protect, professorOnly, markProfessorNotificationApi);
+router.get("/dashboard", protect, professorOnly, getProfessorDashboardApi);
+router.get("/departments", protect, professorOnly, getProfessorDepartmentsApi);
+router.get("/students", protect, professorOnly, getProfessorStudentsApi);
+router.get("/assignments/:id", protect, professorOnly, getProfessorAssignmentApi);
+router.get("/notifications", protect, professorOnly, getProfessorNotificationsApi);
+router.post("/notifications/mark-all-read", protect, professorOnly, markAllProfessorNotificationsApi);
+router.post("/notifications/:id/mark-read", protect, professorOnly, markProfessorNotificationApi);
 
 // OTP Verification (Must be before :id routes)
 // OTP Verification FIRST (MUST BE BEFORE :id route)
