@@ -24,6 +24,24 @@
       }
     },
     {
+      "source": "/admin/dashboard/stats",
+      "destination": {
+        "service": "backend"
+      }
+    },
+    {
+      "source": "/admin/departments/api/(.*)",
+      "destination": {
+        "service": "backend"
+      }
+    },
+    {
+      "source": "/admin/users/api/(.*)",
+      "destination": {
+        "service": "backend"
+      }
+    },
+    {
       "source": "/(.*)",
       "destination": {
         "service": "frontend"
