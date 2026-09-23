@@ -1,45 +1,68 @@
-import SibApiV3Sdk from "sib-api-v3-sdk";
+const getBrevoConfig = () => {
+  const apiKey = process.env.BREVO_API_KEY;
+  const senderEmail = process.env.BREVO_SENDER_EMAIL;
 
-let apiInstance = null;
-
-const getBrevo = () => {
-  if (!apiInstance) {
-    if (!process.env.BREVO_API_KEY) {
-      throw new Error("BREVO_API_KEY not set");
-    }
-
-    const client = SibApiV3Sdk.ApiClient.instance;
-    client.authentications["api-key"].apiKey = process.env.BREVO_API_KEY;
-
-    apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
+  if (!apiKey) {
+    throw new Error("BREVO_API_KEY is missing");
   }
-  return apiInstance;
+
+  if (!senderEmail) {
+    throw new Error("BREVO_SENDER_EMAIL is missing");
+  }
+
+  console.log("Brevo API key:", "FOUND");
+  console.log("Brevo sender:", senderEmail);
+
+  return {
+    apiKey,
+    senderEmail,
+  };
 };
 
 export const sendEmail = async ({ to, subject, html }) => {
   try {
-    const brevo = getBrevo();
-    const senderEmail = process.env.BREVO_SENDER_EMAIL;
+    const { apiKey, senderEmail } = getBrevoConfig();
 
-    if (!senderEmail) {
-      throw new Error("BREVO_SENDER_EMAIL not set");
-    }
-
-    const response = await brevo.sendTransacEmail({
-      sender: {
-        // This address must be verified in Brevo under Senders, Domains & Dedicated IPs.
-        email: senderEmail,
-        name: process.env.BREVO_SENDER_NAME || "University Portal",
+    const response = await fetch("https://api.sendinblue.com/v3/smtp/email", {
+      method: "POST",
+      headers: {
+        "api-key": apiKey,
+        "Content-Type": "application/json",
+        Accept: "application/json",
       },
-      to: [{ email: to }],
-      subject,
-      htmlContent: html,
+      body: JSON.stringify({
+        sender: {
+          email: senderEmail,
+          name: process.env.BREVO_SENDER_NAME || "University Portal",
+        },
+        to: [
+          {
+            email: to,
+          },
+        ],
+        subject,
+        htmlContent: html,
+      }),
     });
 
-    console.log("📧 Email sent:", response.messageId);
-    return response;
+    const data = await response.json();
+
+    if (!response.ok) {
+      console.error("❌ Brevo API error:", {
+        status: response.status,
+        data,
+      });
+
+      throw new Error(
+        data?.message || `Brevo API failed with status ${response.status}`
+      );
+    }
+
+    console.log("📧 Email sent successfully:", data);
+
+    return data;
   } catch (err) {
-    console.error("❌ Brevo email failed:", err);
+    console.error("❌ Brevo email failed:", err.message);
     throw err;
   }
 };
