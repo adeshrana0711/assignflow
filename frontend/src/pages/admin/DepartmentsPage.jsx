@@ -19,7 +19,7 @@ function DepartmentsPage() {
       if (filterType) query.set('type', filterType)
       query.set('page', String(page))
 
-      const response = await fetch(`/admin/departments/api?${query.toString()}`, {
+      const response = await fetch(`/api/admin/departments/api?${query.toString()}`, {
         credentials: 'include',
       })
 
