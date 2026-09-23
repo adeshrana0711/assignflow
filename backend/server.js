@@ -57,8 +57,12 @@ app.use("/public", express.static(path.join(__dirname, "public")));
 app.use("/auth", authRoutes);
 
 // Admin Routes
-app.use("/api/admin", adminRoutes);
+app.use("/admin", adminRoutes);
 app.use("/admin/users", userRoutes);
+
+
+app.use("/api/admin", adminRoutes);
+app.use("/api/admin/users", userRoutes);
 
 // Student Routes
 import studentRoutes from "./routes/student.routes.js";
