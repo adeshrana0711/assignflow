@@ -133,7 +133,7 @@ export function StudentLayout({ children }) {
   const [unread, setUnread] = useState(0);
 
   useEffect(() => {
-    api("/student/api/dashboard")
+    api("/api/student/dashboard")
       .then((data) => {
         setUnread(data.unreadNotifications || 0);
       })
@@ -348,7 +348,7 @@ export function StudentDashboard() {
   const [statusFilter, setStatusFilter] = useState("all");
 
   useEffect(() => {
-    api("/student/api/dashboard")
+    api("/api/student/dashboard")
       .then(setData)
       .catch((error) => {
         setError(
@@ -797,7 +797,7 @@ export function StudentAssignments() {
         setError("");
 
         const data = await api(
-          `/student/api/assignments?${searchParams.toString()}`
+          `/api/student/assignments?${searchParams.toString()}`
         );
 
         setAssignments(
@@ -973,7 +973,7 @@ export function StudentAssignmentDetails() {
       setError("");
 
       const data = await api(
-        `/student/api/assignments/${id}`
+        `/api/student/assignments/${id}`
       );
 
       setAssignment(
@@ -1082,7 +1082,7 @@ export function StudentAssignmentDetails() {
 
         const result =
           await api(
-            `/student/api/assignments/${id}/submit-completed`,
+            `/api/student/assignments/${id}/submit-completed`,
             {
               method: "POST",
               body: formData,
@@ -1587,7 +1587,7 @@ export function StudentNotifications() {
   // ====================================================
   const reload = () => {
 
-    api("/student/api/notifications")
+    api("/api/student/notifications")
 
       .then((data) => {
 
@@ -1622,7 +1622,7 @@ export function StudentNotifications() {
     try {
 
       await api(
-        `/student/api/notifications/${id}/mark-read`,
+        `/api/student/notifications/${id}/mark-read`,
         {
           method: "POST",
         }
@@ -1650,7 +1650,7 @@ export function StudentNotifications() {
     try {
 
       await api(
-        "/student/api/notifications/mark-all-read",
+        "/api/student/notifications/mark-all-read",
         {
           method: "POST",
         }

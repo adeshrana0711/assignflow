@@ -23,7 +23,7 @@ export default function StudentUpload({ bulk = false }) {
         setError("");
 
         const response = await fetch(
-          "/student/api/professors",
+          "/api/student/professors",
           {
             credentials: "include",
             headers: {

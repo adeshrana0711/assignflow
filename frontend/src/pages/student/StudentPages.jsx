@@ -204,7 +204,7 @@ export function StudentLayout({ children }) {
       try {
 
         const data =
-          await api("/student/api/dashboard");
+          await api("/api/student/dashboard");
 
         if (mounted) {
           setUnread(
@@ -517,7 +517,7 @@ export function StudentDashboard() {
 
         const result =
           await api(
-            "/student/api/dashboard"
+            "/api/student/dashboard"
           );
 
         if (mounted) {
@@ -1167,7 +1167,7 @@ export function StudentAssignments() {
 
           const data =
             await api(
-              `/student/api/assignments?${searchParams.toString()}`
+              `/api/student/assignments?${searchParams.toString()}`
             );
 
 
@@ -1408,7 +1408,7 @@ export function StudentAssignmentDetails() {
 
         const data =
           await api(
-            `/student/api/assignments/${id}`
+            `/api/student/assignments/${id}`
           );
 
 
@@ -1543,7 +1543,7 @@ export function StudentAssignmentDetails() {
 
         const result =
           await api(
-            `/student/api/assignments/${id}/submit-completed`,
+            `/api/student/assignments/${id}/submit-completed`,
             {
               method: "POST",
               body: formData,
@@ -2049,7 +2049,7 @@ export function StudentNotifications() {
 
       const data =
         await api(
-          "/student/api/notifications"
+          "/api/student/notifications"
         );
 
 
@@ -2093,7 +2093,7 @@ export function StudentNotifications() {
     try {
 
       await api(
-        `/student/api/notifications/${id}/mark-read`,
+        `/api/student/notifications/${id}/mark-read`,
         {
           method: "POST",
         }
@@ -2122,7 +2122,7 @@ export function StudentNotifications() {
     try {
 
       await api(
-        "/student/api/notifications/mark-all-read",
+        "/api/student/notifications/mark-all-read",
         {
           method: "POST",
         }
