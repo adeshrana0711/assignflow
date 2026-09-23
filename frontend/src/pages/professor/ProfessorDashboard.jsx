@@ -219,7 +219,7 @@ export default function ProfessorDashboard() {
 
           const result =
             await api(
-              `/professor/api/dashboard?${params.toString()}`
+              `/api/professor/dashboard?${params.toString()}`
             );
 
 

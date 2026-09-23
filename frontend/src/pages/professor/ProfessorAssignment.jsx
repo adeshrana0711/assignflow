@@ -117,7 +117,7 @@ export default function ProfessorAssignment({
         setError("");
 
         const result = await api(
-          `/professor/api/assignments/${id}`
+          `/api/professor/assignments/${id}`
         );
 
         setData(result);

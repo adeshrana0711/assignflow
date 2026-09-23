@@ -57,7 +57,7 @@ const CreateAssignment = () => {
   const fetchDepartments = async () => {
     try {
       const response = await axios.get(
-        "/professor/api/departments",
+        "/api/professor/departments",
         {
           withCredentials: true,
         }
@@ -87,7 +87,7 @@ const CreateAssignment = () => {
   const fetchStudents = async () => {
     try {
       const response = await axios.get(
-        "/professor/api/students",
+        "/api/professor/students",
         {
           withCredentials: true,
         }
