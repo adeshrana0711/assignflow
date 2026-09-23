@@ -66,15 +66,15 @@ app.use("/api/admin/users", userRoutes);
 
 // Student Routes
 import studentRoutes from "./routes/student.routes.js";
-app.use("/student", studentRoutes);
+app.use("/api/student", studentRoutes);
 
 // Professor Routes
 import professorRoutes from "./routes/professor.routes.js";
-app.use("/professor", professorRoutes);
+app.use("/api/professor", professorRoutes);
 
 // HOD Routes
 import hodRoutes from "./routes/hod.routes.js";
-app.use("/hod", hodRoutes);
+app.use("/api/hod", hodRoutes);
 
 
 import assignmentRoutes from "./routes/assignment.routes.js";
