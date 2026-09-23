@@ -4,20 +4,99 @@ import "./CreateAssignment.css";
 
 const axios = {
   get: async (url, options = {}) => {
-    const response = await fetch(url, { credentials: options.withCredentials ? "include" : "same-origin" });
-    const data = await response.json();
-    if (!response.ok) throw { response: { data } };
+    const response = await fetch(url, {
+      credentials: options.withCredentials
+        ? "include"
+        : "same-origin",
+
+      headers: {
+        Accept: "application/json",
+        "X-Requested-With": "XMLHttpRequest",
+      },
+    });
+
+    const contentType =
+      response.headers.get("content-type") || "";
+
+    let data;
+
+    if (contentType.includes("application/json")) {
+      data = await response.json();
+    } else {
+      const text = await response.text();
+
+      throw {
+        response: {
+          data: {
+            message:
+              text || `Server returned ${response.status}`,
+          },
+        },
+      };
+    }
+
+    if (!response.ok) {
+      throw {
+        response: {
+          data,
+        },
+      };
+    }
+
     return { data };
   },
+
   post: async (url, body, options = {}) => {
     const response = await fetch(url, {
       method: "POST",
-      credentials: options.withCredentials ? "include" : "same-origin",
-      headers: { "Content-Type": "application/json" },
+
+      credentials: options.withCredentials
+        ? "include"
+        : "same-origin",
+
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        "X-Requested-With": "XMLHttpRequest",
+      },
+
       body: JSON.stringify(body),
     });
-    const data = await response.json();
-    if (!response.ok) throw { response: { data } };
+
+    const contentType =
+      response.headers.get("content-type") || "";
+
+    let data;
+
+    if (contentType.includes("application/json")) {
+      data = await response.json();
+    } else {
+      const text = await response.text();
+
+      console.error(
+        "Server returned non-JSON:",
+        text
+      );
+
+      throw {
+        response: {
+          data: {
+            message:
+              text ||
+              `Server returned ${response.status}`,
+          },
+        },
+      };
+    }
+
+    if (!response.ok) {
+      throw {
+        response: {
+          data,
+        },
+      };
+    }
+
     return { data };
   },
 };
@@ -212,7 +291,7 @@ const CreateAssignment = () => {
       };
 
       const response = await axios.post(
-        "http://localhost:5000/api/assignments",
+        "/api/assignments",
         data,
         {
           withCredentials: true,
