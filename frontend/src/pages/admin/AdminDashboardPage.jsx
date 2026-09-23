@@ -11,35 +11,34 @@ function AdminDashboardPage() {
   })
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+  
+useEffect(() => {
+  const fetchStats = async () => {
+    try {
+      const response = await fetch('/admin/dashboard/stats', {
+        credentials: 'include',
+        headers: {
+          Accept: 'application/json',
+          'X-Requested-With': 'XMLHttpRequest',
+        },
+      })
 
-  useEffect(() => {
-    const fetchStats = async () => {
-      try {
-        const apiBaseUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000'
-        const response = await fetch(`${apiBaseUrl}/admin/dashboard/stats`, {
-          credentials: 'include',
-          headers: {
-            'Accept': 'application/json',
-            'X-Requested-With': 'XMLHttpRequest',
-          },
-        })
-
-        if (!response.ok) {
-          const errorBody = await response.json().catch(() => null)
-          throw new Error(errorBody?.error || 'Unable to load stats')
-        }
-
-        const data = await response.json()
-        setStats(data)
-      } catch (err) {
-        setError(err.message)
-      } finally {
-        setLoading(false)
+      if (!response.ok) {
+        const errorBody = await response.json().catch(() => null)
+        throw new Error(errorBody?.error || 'Unable to load stats')
       }
-    }
 
-    fetchStats()
-  }, [])
+      const data = await response.json()
+      setStats(data)
+    } catch (err) {
+      setError(err.message)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  fetchStats()
+}, [])
 
   const statCards = useMemo(
     () => [
