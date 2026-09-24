@@ -5,7 +5,6 @@
     "frontend": {
       "root": "frontend/",
       "framework": "vite",
-
       "rewrites": [
         {
           "source": "/(.*)",
