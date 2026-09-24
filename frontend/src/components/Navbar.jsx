@@ -57,9 +57,8 @@ export default function Navbar() {
     <header className="app-navbar">
       <div className="nav-inner">
 
-        {/* CENTER BRAND */}
+         <div className="nav-left">
         <Link to={portal.home} className="brand">
-
           <div className="brand-ring small">
             <span>AF</span>
           </div>
@@ -67,8 +66,9 @@ export default function Navbar() {
           <span className="brand-title">
             {portal.title}
           </span>
-
         </Link>
+      </div>
+
 
 
         {/* RIGHT NAVIGATION */}
