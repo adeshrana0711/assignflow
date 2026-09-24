@@ -1392,37 +1392,140 @@
   }
 }
 /* =========================================================
-   CENTER BRAND
+   FINAL NAVBAR LAYOUT
 ========================================================= */
 
-.app-navbar .brand {
-  position: absolute;
+.app-navbar {
+  position: relative !important;
 
-  left: 50%;
-  top: 50%;
+  width: 100%;
+  height: 76px;
 
-  transform: translate(-50%, -50%);
+  background: #ffffff;
 
-  display: flex;
-  align-items: center;
-
-  gap: 14px;
-
-  text-decoration: none;
-
-  white-space: nowrap;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 
-/* =========================================================
-   AF LOGO
-========================================================= */
+/* ---------------------------------------------------------
+   CENTER BRAND
+--------------------------------------------------------- */
+
+.app-navbar > .brand {
+  position: absolute !important;
+
+  left: 50% !important;
+  top: 50% !important;
+
+  transform: translate(-50%, -50%) !important;
+
+  display: flex !important;
+  align-items: center !important;
+
+  gap: 14px !important;
+
+  z-index: 5;
+}
+
+
+/* ---------------------------------------------------------
+   NAV LINKS — LEFT
+--------------------------------------------------------- */
+
+.app-navbar > .nav-links {
+  position: absolute !important;
+
+  left: 38px !important;
+  top: 50% !important;
+
+  transform: translateY(-50%) !important;
+
+  display: flex !important;
+  align-items: center !important;
+
+  gap: 8px !important;
+
+  margin: 0 !important;
+}
+
+
+/* ---------------------------------------------------------
+   LOGOUT — RIGHT
+--------------------------------------------------------- */
+
+.app-navbar > .nav-actions {
+  position: absolute !important;
+
+  right: 40px !important;
+  top: 50% !important;
+
+  transform: translateY(-50%) !important;
+
+  margin: 0 !important;
+}
+
+
+/* ---------------------------------------------------------
+   NAV LINKS
+--------------------------------------------------------- */
+
+.app-navbar .nav-link {
+  padding: 10px 12px;
+
+  color: #334155;
+
+  font-size: 15px;
+
+  font-weight: 500;
+
+  text-decoration: none;
+
+  border-radius: 8px;
+
+  transition: 0.2s ease;
+}
+
+.app-navbar .nav-link:hover {
+  color: #5145e5;
+
+  background: #f5f3ff;
+}
+
+.app-navbar .nav-link.active {
+  color: #5145e5;
+
+  font-weight: 700;
+
+  background: transparent;
+
+  position: relative;
+}
+
+.app-navbar .nav-link.active::after {
+  content: "";
+
+  position: absolute;
+
+  left: 10px;
+  right: 10px;
+
+  bottom: 0;
+
+  height: 3px;
+
+  border-radius: 5px;
+
+  background: #5145e5;
+}
+
+
+/* ---------------------------------------------------------
+   BRAND
+--------------------------------------------------------- */
 
 .app-navbar .brand-ring.small {
   width: 52px !important;
   height: 52px !important;
-
-  flex: 0 0 52px !important;
 
   display: flex !important;
   align-items: center !important;
@@ -1436,22 +1539,17 @@
     #4f46e5
   ) !important;
 
+  box-shadow:
+    0 5px 14px rgba(37, 99, 235, 0.18);
+
   border: none !important;
-
-  overflow: hidden !important;
 }
-
-
-/* Remove old generated content */
 
 .app-navbar .brand-ring.small::before,
 .app-navbar .brand-ring.small::after {
   content: none !important;
   display: none !important;
 }
-
-
-/* AF */
 
 .app-navbar .brand-ring.small span {
   color: #ffffff !important;
@@ -1462,50 +1560,67 @@
 }
 
 
-/* =========================================================
+/* ---------------------------------------------------------
    BRAND TEXT
-========================================================= */
+--------------------------------------------------------- */
 
 .app-navbar .brand-info {
   display: flex;
 
   flex-direction: column;
 
-  justify-content: center;
-
   gap: 4px;
 }
 
-
-/* AssignFlow */
-
 .app-navbar .brand-text {
-  display: block !important;
+  color: #172033;
 
-  color: #172033 !important;
+  font-size: 21px;
 
-  font-size: 21px !important;
+  line-height: 1;
 
-  line-height: 1 !important;
+  font-weight: 750;
+}
 
-  font-weight: 750 !important;
+.app-navbar .brand-subtitle {
+  color: #94a3b8;
 
-  letter-spacing: -0.5px !important;
+  font-size: 12px;
+
+  line-height: 1.2;
+
+  font-weight: 500;
 }
 
 
-/* Professor Portal */
+/* ---------------------------------------------------------
+   LOGOUT
+--------------------------------------------------------- */
 
-.app-navbar .brand-subtitle {
-  display: block !important;
+.app-navbar .logout-button {
+  height: 44px;
 
-  color: #94a3b8 !important;
+  padding: 0 22px;
 
-  font-size: 12px !important;
+  border: none;
 
-  line-height: 1.2 !important;
+  border-radius: 23px;
 
-  font-weight: 500 !important;
+  background: #111827;
 
-  letter-spacing: 0 !important;
+  color: white;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.app-navbar .logout-button:hover {
+  background: #263247;
+
+  transform: translateY(-1px);
 }
