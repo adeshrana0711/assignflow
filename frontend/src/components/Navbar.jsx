@@ -54,53 +54,62 @@ export default function Navbar() {
         };
 
   return (
-   <header className="app-navbar">
-  <div className="nav-inner">
+    <header className="app-navbar">
+      <div className="nav-inner">
 
-    {/* LEFT BRAND */}
-    <Link to={portal.home} className="brand">
-      <div className="brand-ring small">
-        <span>AF</span>
-      </div>
+        {/* LEFT BRAND */}
+        <Link
+          to={portal.home}
+          className="brand"
+        >
+          <div className="brand-ring small">
+            <span>AF</span>
+          </div>
 
-      <div className="brand-info">
-        <span className="brand-text">
-          AssignFlow
-        </span>
+          <div className="brand-info">
+            <span className="brand-text">
+              AssignFlow
+            </span>
 
-        <span className="brand-subtitle">
-          {portal.title}
-        </span>
-      </div>
-    </Link>
+            <span className="brand-subtitle">
+              {portal.title}
+            </span>
+          </div>
+        </Link>
 
-    {/* RIGHT NAVIGATION */}
-    <div className="navbar-right">
 
-      <nav className="nav-links">
-        {portal.links.map(([label, path]) => (
-          <Link
-            key={path}
-            to={path}
-            className={`nav-link ${
-              location.pathname === path ? "active" : ""
-            }`}
+        {/* RIGHT SIDE */}
+        <div className="navbar-right">
+
+          {/* NAVIGATION */}
+          <nav className="nav-links">
+            {portal.links.map(([label, path]) => (
+              <Link
+                key={path}
+                to={path}
+                className={`nav-link ${
+                  location.pathname === path
+                    ? "active"
+                    : ""
+                }`}
+              >
+                {label}
+              </Link>
+            ))}
+          </nav>
+
+
+          {/* LOGOUT */}
+          <button
+            className="logout-button"
+            onClick={handleLogout}
           >
-            {label}
-          </Link>
-        ))}
-      </nav>
+            Logout
+          </button>
 
-      <button
-        className="logout-button"
-        onClick={handleLogout}
-      >
-        Logout
-      </button>
+        </div>
 
-    </div>
-
-  </div>
-</header>
+      </div>
+    </header>
   );
 }
