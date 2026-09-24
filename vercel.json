@@ -30,24 +30,9 @@
     },
 
     {
-      "source": "/assets/(.*)",
-      "destination": {
-        "service": "frontend"
-      }
-    },
-
-    {
-      "source": "/favicon.ico",
-      "destination": {
-        "service": "frontend"
-      }
-    },
-
-    {
       "source": "/(.*)",
       "destination": {
-        "service": "frontend",
-        "path": "/index.html"
+        "service": "frontend"
       }
     }
   ]
