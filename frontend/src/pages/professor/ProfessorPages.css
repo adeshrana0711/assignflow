@@ -1773,3 +1773,50 @@
     font-size: 9px;
   }
 }
+/* =========================================================
+   FIX: REMOVE ALL OLD LOGO CONTENT
+========================================================= */
+
+.app-navbar .brand-ring.small::before,
+.app-navbar .brand-ring.small::after {
+  content: none !important;
+  display: none !important;
+}
+
+.app-navbar .brand-ring.small .brand-svg {
+  display: none !important;
+}
+
+/* Only show AF */
+.app-navbar .brand-ring.small {
+  width: 52px !important;
+  height: 52px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  flex: 0 0 52px !important;
+
+  border-radius: 12px !important;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #4f46e5
+  ) !important;
+
+  overflow: hidden !important;
+}
+
+.app-navbar .brand-ring.small span {
+  display: block !important;
+
+  color: #ffffff !important;
+
+  font-size: 17px !important;
+
+  font-weight: 800 !important;
+
+  line-height: 1 !important;
+}
