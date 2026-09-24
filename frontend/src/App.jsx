@@ -45,9 +45,8 @@ import VerifyOtp from "./pages/professor/VerifyOtp";
 // PROFESSOR CSS
 // ======================================================
 
-import "./pages/professor/CreateAssignment.css";
 import "./pages/professor/ProfessorPages.css";
-
+import "./pages/professor/CreateAssignment.css";
 // ======================================================
 // HOD
 // ======================================================
