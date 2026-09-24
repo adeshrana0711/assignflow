@@ -57,17 +57,23 @@ export default function Navbar() {
     <header className="app-navbar">
       <div className="nav-inner">
 
-         <div className="nav-left">
-        <Link to={portal.home} className="brand">
-          <div className="brand-ring small">
-            <span>AF</span>
-          </div>
+         <Link to={portal.home} className="brand">
 
-          <span className="brand-title">
-            {portal.title}
-          </span>
-        </Link>
-      </div>
+  <div className="brand-ring small">
+    <span>AF</span>
+  </div>
+
+  <div className="brand-info">
+    <span className="brand-text">
+      AssignFlow
+    </span>
+
+    <span className="brand-subtitle">
+      {portal.title}
+    </span>
+  </div>
+
+</Link>
 
 
 
