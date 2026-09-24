@@ -12,19 +12,13 @@
   },
   "rewrites": [
     {
-      "source": "/auth/(.*)",
-      "destination": {
-        "service": "backend"
-      }
-    },
-    {
       "source": "/api/(.*)",
       "destination": {
         "service": "backend"
       }
     },
     {
-      "source": "/admin/users/(.*)",
+      "source": "/auth/(.*)",
       "destination": {
         "service": "backend"
       }
