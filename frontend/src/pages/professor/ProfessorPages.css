@@ -965,3 +965,429 @@
     min-width: 950px;
   }
 }
+
+/* =========================================================
+   ASSIGNFLOW — PROFESSOR NAVBAR
+   LOGIN / ADMIN STYLE
+========================================================= */
+
+.app-layout {
+  min-height: 100vh;
+  background: #f4f6f8;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.app-navbar {
+  width: 100%;
+  height: 84px;
+
+  margin: 0;
+  padding: 0;
+
+  background: #ffffff;
+
+  border-bottom: 1px solid #e2e6eb;
+
+  box-shadow: none;
+
+  backdrop-filter: none;
+
+  position: relative;
+  z-index: 100;
+}
+
+
+/* =========================================================
+   NAVBAR INNER
+========================================================= */
+
+.app-navbar .nav-inner {
+  width: 100%;
+  max-width: none;
+
+  height: 100%;
+
+  margin: 0;
+
+  padding: 0 5%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.app-navbar .brand {
+  display: flex;
+  align-items: center;
+
+  gap: 22px;
+
+  min-width: 0;
+}
+
+
+/* =========================================================
+   ASSIGNFLOW LOGO
+========================================================= */
+
+.app-navbar .brand-ring.small {
+  width: 167px;
+  height: 61px;
+
+  flex: 0 0 167px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      110deg,
+      #7624a4 0%,
+      #424db9 100%
+    );
+
+  border: none;
+
+  box-shadow:
+    0 5px 12px
+    rgba(68, 53, 157, 0.18);
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+
+/* Hide old icon */
+
+.app-navbar .brand-ring.small .brand-svg {
+  display: none;
+}
+
+
+/* Put AssignFlow text inside logo */
+
+.app-navbar .brand-ring.small::after {
+  content: "AssignFlow";
+
+  color: #ffffff;
+
+  font-size: 22px;
+
+  font-weight: 800;
+
+  letter-spacing: -0.7px;
+}
+
+
+/* =========================================================
+   PROFESSOR PORTAL
+========================================================= */
+
+.app-navbar .brand-text {
+  display: none;
+}
+
+.app-navbar .brand-subtitle {
+  display: block;
+
+  margin: 0;
+
+  color: #5145e5;
+
+  font-size: 31px;
+
+  line-height: 1;
+
+  font-weight: 800;
+
+  letter-spacing: -1px;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.app-navbar .nav-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 25px;
+}
+
+
+/* =========================================================
+   NAV LINKS
+========================================================= */
+
+.app-navbar .nav-link {
+  position: relative;
+
+  padding: 8px 10px;
+
+  color: #3d4b5e;
+
+  background: transparent;
+
+  border-radius: 8px;
+
+  font-size: 19px;
+
+  font-weight: 500;
+
+  line-height: 1.4;
+
+  text-decoration: none;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+
+/* Hover */
+
+.app-navbar .nav-link:hover {
+  color: #5145e5;
+
+  background: #f5f3ff;
+}
+
+
+/* Active underline */
+
+.app-navbar .nav-link.active {
+  color: #5145e5;
+
+  font-weight: 650;
+}
+
+.app-navbar .nav-link.active::after {
+  content: "";
+
+  position: absolute;
+
+  left: 10px;
+  right: 10px;
+
+  bottom: 1px;
+
+  height: 2px;
+
+  border-radius: 5px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #7624a4,
+      #5145e5
+    );
+}
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+.app-navbar .logout-button,
+.app-navbar .nav-actions > button,
+.app-navbar .nav-actions button {
+  min-width: 112px;
+
+  height: 48px;
+
+  padding: 0 22px;
+
+  border: 1px solid #d7dce3;
+
+  border-radius: 25px;
+
+  background: #111827;
+
+  color: #ffffff;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow: none;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.app-navbar .logout-button:hover,
+.app-navbar .nav-actions > button:hover,
+.app-navbar .nav-actions button:hover {
+  background: #253047;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 6px 16px
+    rgba(15, 23, 42, 0.15);
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 1200px) {
+
+  .app-navbar .nav-inner {
+    padding: 0 4%;
+  }
+
+  .app-navbar .brand {
+    gap: 16px;
+  }
+
+  .app-navbar .brand-ring.small {
+    width: 145px;
+    height: 56px;
+
+    flex-basis: 145px;
+  }
+
+  .app-navbar .brand-ring.small::after {
+    font-size: 20px;
+  }
+
+  .app-navbar .brand-subtitle {
+    font-size: 27px;
+  }
+
+  .app-navbar .nav-actions {
+    gap: 14px;
+  }
+
+  .app-navbar .nav-link {
+    font-size: 17px;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 850px) {
+
+  .app-navbar {
+    height: auto;
+
+    min-height: 76px;
+  }
+
+  .app-navbar .nav-inner {
+    min-height: 76px;
+
+    padding:
+      12px 20px;
+
+    gap: 14px;
+
+    flex-wrap: wrap;
+  }
+
+  .app-navbar .brand {
+    gap: 12px;
+  }
+
+  .app-navbar .brand-ring.small {
+    width: 130px;
+    height: 48px;
+
+    flex-basis: 130px;
+
+    border-radius: 13px;
+  }
+
+  .app-navbar .brand-ring.small::after {
+    font-size: 17px;
+  }
+
+  .app-navbar .brand-subtitle {
+    font-size: 22px;
+  }
+
+  .app-navbar .nav-actions {
+    gap: 5px;
+  }
+
+  .app-navbar .nav-link {
+    display: none;
+  }
+
+  .app-navbar .logout-button,
+  .app-navbar .nav-actions > button,
+  .app-navbar .nav-actions button {
+    min-width: 90px;
+
+    height: 42px;
+
+    padding: 0 16px;
+
+    font-size: 14px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 560px) {
+
+  .app-navbar .nav-inner {
+    padding: 10px 15px;
+  }
+
+  .app-navbar .brand-ring.small {
+    width: 120px;
+    height: 45px;
+
+    flex-basis: 120px;
+  }
+
+  .app-navbar .brand-ring.small::after {
+    font-size: 16px;
+  }
+
+  .app-navbar .brand-subtitle {
+    font-size: 19px;
+  }
+
+  .app-navbar .logout-button,
+  .app-navbar .nav-actions > button,
+  .app-navbar .nav-actions button {
+    min-width: auto;
+
+    height: 40px;
+
+    padding: 0 14px;
+
+    font-size: 13px;
+  }
+}
