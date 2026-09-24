@@ -78,12 +78,7 @@ function LoginPage() {
         <div className="navbar-right">
           <span>New to AssignFlow?</span>
 
-          <button
-            type="button"
-            onClick={() => navigate("/register")}
-          >
-            Create account
-          </button>
+          <button type="button" onClick={() => navigate("/register")}>Contact Admin</button>
         </div>
 
       </header>
