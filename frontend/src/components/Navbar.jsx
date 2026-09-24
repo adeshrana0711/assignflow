@@ -54,62 +54,53 @@ export default function Navbar() {
         };
 
   return (
-    <header className="app-navbar">
-      <div className="nav-inner">
+   <header className="app-navbar">
+  <div className="nav-inner">
 
-         <Link to={portal.home} className="brand">
-
-  <div className="brand-ring small">
-    <span>AF</span>
-  </div>
-
-  <div className="brand-info">
-    <span className="brand-text">
-      AssignFlow
-    </span>
-
-    <span className="brand-subtitle">
-      {portal.title}
-    </span>
-  </div>
-
-</Link>
-
-
-
-        {/* RIGHT NAVIGATION */}
-        <nav className="nav-links">
-
-          {portal.links.map(([label, path]) => (
-            <Link
-              key={path}
-              to={path}
-              className={`nav-link ${
-                location.pathname === path
-                  ? "active"
-                  : ""
-              }`}
-            >
-              {label}
-            </Link>
-          ))}
-
-        </nav>
-
-
-        {/* LOGOUT */}
-        <div className="nav-actions">
-
-          <button
-            className="logout-button"
-            onClick={handleLogout}
-          >
-            Logout
-          </button>
-
-        </div>
-
+    {/* LEFT BRAND */}
+    <Link to={portal.home} className="brand">
+      <div className="brand-ring small">
+        <span>AF</span>
       </div>
-    </header>
+
+      <div className="brand-info">
+        <span className="brand-text">
+          AssignFlow
+        </span>
+
+        <span className="brand-subtitle">
+          {portal.title}
+        </span>
+      </div>
+    </Link>
+
+    {/* RIGHT NAVIGATION */}
+    <div className="navbar-right">
+
+      <nav className="nav-links">
+        {portal.links.map(([label, path]) => (
+          <Link
+            key={path}
+            to={path}
+            className={`nav-link ${
+              location.pathname === path ? "active" : ""
+            }`}
+          >
+            {label}
+          </Link>
+        ))}
+      </nav>
+
+      <button
+        className="logout-button"
+        onClick={handleLogout}
+      >
+        Logout
+      </button>
+
+    </div>
+
+  </div>
+</header>
   );
 }

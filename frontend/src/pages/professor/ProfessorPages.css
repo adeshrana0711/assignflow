@@ -1392,85 +1392,171 @@
   }
 }
 /* =========================================================
-   FINAL NAVBAR LAYOUT
+   ASSIGNFLOW NAVBAR
 ========================================================= */
 
 .app-navbar {
-  position: relative !important;
-
   width: 100%;
   height: 76px;
 
   background: #ffffff;
 
   border-bottom: 1px solid #e5e7eb;
+
+  position: relative;
+  z-index: 100;
 }
 
 
-/* ---------------------------------------------------------
-   CENTER BRAND
---------------------------------------------------------- */
+/* =========================================================
+   MAIN NAV
+========================================================= */
 
-.app-navbar > .brand {
-  position: absolute !important;
+.app-navbar .nav-inner {
+  width: 100%;
+  height: 100%;
 
-  left: 50% !important;
-  top: 50% !important;
+  padding: 0 5%;
 
-  transform: translate(-50%, -50%) !important;
-
-  display: flex !important;
-  align-items: center !important;
-
-  gap: 14px !important;
-
-  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 
-/* ---------------------------------------------------------
-   NAV LINKS — LEFT
---------------------------------------------------------- */
+/* =========================================================
+   LEFT BRAND
+========================================================= */
 
-.app-navbar > .nav-links {
-  position: absolute !important;
+.app-navbar .brand {
+  display: flex;
+  align-items: center;
 
-  left: 38px !important;
-  top: 50% !important;
+  gap: 14px;
 
-  transform: translateY(-50%) !important;
+  text-decoration: none;
 
-  display: flex !important;
-  align-items: center !important;
-
-  gap: 8px !important;
-
-  margin: 0 !important;
+  flex-shrink: 0;
 }
 
 
-/* ---------------------------------------------------------
-   LOGOUT — RIGHT
---------------------------------------------------------- */
+/* =========================================================
+   AF LOGO
+========================================================= */
 
-.app-navbar > .nav-actions {
-  position: absolute !important;
+.app-navbar .brand-ring.small {
+  width: 56px;
+  height: 56px;
 
-  right: 40px !important;
-  top: 50% !important;
+  flex: 0 0 56px;
 
-  transform: translateY(-50%) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  margin: 0 !important;
+  border-radius: 13px;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #4f46e5
+  );
+
+  border: none;
+
+  box-shadow:
+    0 5px 14px rgba(37, 99, 235, 0.18);
 }
 
 
-/* ---------------------------------------------------------
-   NAV LINKS
---------------------------------------------------------- */
+/* remove old generated content */
+
+.app-navbar .brand-ring.small::before,
+.app-navbar .brand-ring.small::after {
+  content: none !important;
+  display: none !important;
+}
+
+
+/* AF */
+
+.app-navbar .brand-ring.small span {
+  color: #ffffff;
+
+  font-size: 18px;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   BRAND TEXT
+========================================================= */
+
+.app-navbar .brand-info {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+
+/* AssignFlow */
+
+.app-navbar .brand-text {
+  color: #172033;
+
+  font-size: 21px;
+
+  line-height: 1;
+
+  font-weight: 750;
+
+  letter-spacing: -0.4px;
+}
+
+
+/* Professor Portal */
+
+.app-navbar .brand-subtitle {
+  color: #94a3b8;
+
+  font-size: 12px;
+
+  line-height: 1.2;
+
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   RIGHT SIDE
+========================================================= */
+
+.app-navbar .navbar-right {
+  display: flex;
+
+  align-items: center;
+
+  gap: 24px;
+}
+
+
+/* =========================================================
+   LINKS
+========================================================= */
+
+.app-navbar .nav-links {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+}
 
 .app-navbar .nav-link {
-  padding: 10px 12px;
+  padding: 9px 12px;
 
   color: #334155;
 
@@ -1495,107 +1581,12 @@
   color: #5145e5;
 
   font-weight: 700;
-
-  background: transparent;
-
-  position: relative;
-}
-
-.app-navbar .nav-link.active::after {
-  content: "";
-
-  position: absolute;
-
-  left: 10px;
-  right: 10px;
-
-  bottom: 0;
-
-  height: 3px;
-
-  border-radius: 5px;
-
-  background: #5145e5;
 }
 
 
-/* ---------------------------------------------------------
-   BRAND
---------------------------------------------------------- */
-
-.app-navbar .brand-ring.small {
-  width: 52px !important;
-  height: 52px !important;
-
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-
-  border-radius: 12px !important;
-
-  background: linear-gradient(
-    135deg,
-    #2563eb,
-    #4f46e5
-  ) !important;
-
-  box-shadow:
-    0 5px 14px rgba(37, 99, 235, 0.18);
-
-  border: none !important;
-}
-
-.app-navbar .brand-ring.small::before,
-.app-navbar .brand-ring.small::after {
-  content: none !important;
-  display: none !important;
-}
-
-.app-navbar .brand-ring.small span {
-  color: #ffffff !important;
-
-  font-size: 17px !important;
-
-  font-weight: 800 !important;
-}
-
-
-/* ---------------------------------------------------------
-   BRAND TEXT
---------------------------------------------------------- */
-
-.app-navbar .brand-info {
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 4px;
-}
-
-.app-navbar .brand-text {
-  color: #172033;
-
-  font-size: 21px;
-
-  line-height: 1;
-
-  font-weight: 750;
-}
-
-.app-navbar .brand-subtitle {
-  color: #94a3b8;
-
-  font-size: 12px;
-
-  line-height: 1.2;
-
-  font-weight: 500;
-}
-
-
-/* ---------------------------------------------------------
+/* =========================================================
    LOGOUT
---------------------------------------------------------- */
+========================================================= */
 
 .app-navbar .logout-button {
   height: 44px;
@@ -1608,7 +1599,7 @@
 
   background: #111827;
 
-  color: white;
+  color: #ffffff;
 
   font-size: 15px;
 
@@ -1620,7 +1611,66 @@
 }
 
 .app-navbar .logout-button:hover {
-  background: #263247;
+  background: #253047;
 
   transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .app-navbar .nav-inner {
+    padding: 0 25px;
+  }
+
+  .app-navbar .navbar-right {
+    gap: 10px;
+  }
+
+  .app-navbar .nav-link {
+    font-size: 13px;
+
+    padding: 8px;
+  }
+
+  .app-navbar .brand-text {
+    font-size: 19px;
+  }
+}
+
+
+@media (max-width: 750px) {
+
+  .app-navbar {
+    height: auto;
+  }
+
+  .app-navbar .nav-inner {
+    min-height: 72px;
+
+    padding: 10px 18px;
+  }
+
+  .app-navbar .nav-links {
+    display: none;
+  }
+
+  .app-navbar .brand-ring.small {
+    width: 48px;
+    height: 48px;
+
+    flex-basis: 48px;
+  }
+
+  .app-navbar .logout-button {
+    height: 40px;
+
+    padding: 0 15px;
+
+    font-size: 13px;
+  }
 }
