@@ -70,28 +70,29 @@ export default function StudentNotifications() {
   // ------------------------------------------------------
 
   const mark = async (id) => {
+  try {
+    console.log("Marking notification:", id);
 
-    try {
+    const result = await api(
+      `/api/student/notifications/${id}/mark-read`,
+      {
+        method: "POST",
+      }
+    );
 
-      await api(
-        `/api/student/notifications/${id}/mark-read`,
-        {
-          method: "POST",
-        }
-      );
+    console.log("Mark read response:", result);
 
-      await reload();
+    await reload();
 
-    } catch (error) {
+  } catch (error) {
+    console.error("Mark read error:", error);
 
-      setError(
-        error.message ||
-          "Unable to mark notification."
-      );
-
-    }
-
-  };
+    setError(
+      error.message ||
+        "Unable to mark notification."
+    );
+  }
+};
 
 
   // ------------------------------------------------------
