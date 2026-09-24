@@ -8,7 +8,6 @@ import {
 
 import "./App.css";
 
-
 // ======================================================
 // ADMIN PAGES
 // ======================================================
@@ -25,14 +24,12 @@ import UsersPage from "./pages/admin/UsersPage";
 import AddUserPage from "./pages/admin/AddUserPage";
 import EditUserPage from "./pages/admin/EditUserPage";
 
-
 // ======================================================
 // ADMIN CSS
 // ======================================================
 
 import "./pages/admin/css/AdminDashboard.css";
 import "./pages/admin/css/LoginPage.css";
-
 
 // ======================================================
 // PROFESSOR
@@ -44,14 +41,12 @@ import ProfessorAssignment from "./pages/professor/ProfessorAssignment";
 import ProfessorNotifications from "./pages/professor/ProfessorNotifications";
 import VerifyOtp from "./pages/professor/VerifyOtp";
 
-
 // ======================================================
 // PROFESSOR CSS
 // ======================================================
 
 import "./pages/professor/CreateAssignment.css";
 import "./pages/professor/ProfessorPages.css";
-
 
 // ======================================================
 // HOD
@@ -61,28 +56,26 @@ import HodDashboard from "./pages/hod/HodDashboard";
 import HodAssignment from "./pages/hod/HodAssignment";
 import HodNotifications from "./pages/hod/HodNotifications";
 
-
 // ======================================================
 // HOD CSS
 // ======================================================
 
 import "./pages/hod/HodPages.css";
 
-
 // ======================================================
 // STUDENT
 // ======================================================
 
-import {
-  StudentLayout,
-  StudentDashboard,
-  StudentAssignments,
-  StudentAssignmentDetails,
-  StudentNotifications,
-} from "./pages/student/StudentPages";
+// Student components are now separated into individual files
 
-import StudentUpload from "./pages/student/StudentUpload";
+import StudentLayout from "./pages/student/StudentLayout";
+import StudentDashboard from "./pages/student/dashboard";
+import StudentAssignments from "./pages/student/my-assignments";
+import StudentAssignmentDetails from "./pages/student/details";
+import StudentNotifications from "./pages/student/notifications";
 
+import UploadSingle from "./pages/student/upload-single";
+import BulkUpload from "./pages/student/bulk-upload";
 
 // ======================================================
 // STUDENT CSS
@@ -90,43 +83,33 @@ import StudentUpload from "./pages/student/StudentUpload";
 
 import "./pages/student/StudentPages.css";
 
-
 // ======================================================
 // COMPONENTS
 // ======================================================
 
 import Navbar from "./components/Navbar";
 
-
 // ======================================================
 // MAIN APP LAYOUT
 // ======================================================
 
 function AppLayout() {
-
   const location = useLocation();
-
 
   // ------------------------------------------------------
   // STUDENT HAS ITS OWN NAVBAR
   // ------------------------------------------------------
 
-  const isStudentPage =
-    location.pathname.startsWith("/student");
-
+  const isStudentPage = location.pathname.startsWith("/student");
 
   return (
     <div className="app-layout">
-
 
       {/* ==================================================
           ADMIN / PROFESSOR / HOD NAVBAR
          ================================================== */}
 
-      {!isStudentPage && (
-        <Navbar />
-      )}
-
+      {!isStudentPage && <Navbar />}
 
       <main
         className={
@@ -138,18 +121,14 @@ function AppLayout() {
 
         <Routes>
 
-
           {/* ==================================================
               GENERAL DASHBOARD
              ================================================== */}
 
           <Route
             path="/dashboard"
-            element={
-              <DashboardPage />
-            }
+            element={<DashboardPage />}
           />
-
 
           {/* ==================================================
               ADMIN
@@ -157,59 +136,38 @@ function AppLayout() {
 
           <Route
             path="/admin/dashboard"
-            element={
-              <AdminDashboardPage />
-            }
+            element={<AdminDashboardPage />}
           />
-
 
           <Route
             path="/admin/departments"
-            element={
-              <DepartmentsPage />
-            }
+            element={<DepartmentsPage />}
           />
-
 
           <Route
             path="/admin/departments/add"
-            element={
-              <AddDepartmentPage />
-            }
+            element={<AddDepartmentPage />}
           />
-
 
           <Route
             path="/admin/departments/edit/:id"
-            element={
-              <EditDepartmentPage />
-            }
+            element={<EditDepartmentPage />}
           />
-
 
           <Route
             path="/admin/users"
-            element={
-              <UsersPage />
-            }
+            element={<UsersPage />}
           />
-
 
           <Route
             path="/admin/users/add"
-            element={
-              <AddUserPage />
-            }
+            element={<AddUserPage />}
           />
-
 
           <Route
             path="/admin/users/edit/:id"
-            element={
-              <EditUserPage />
-            }
+            element={<EditUserPage />}
           />
-
 
           {/* ==================================================
               PROFESSOR
@@ -217,53 +175,33 @@ function AppLayout() {
 
           <Route
             path="/professor/dashboard"
-            element={
-              <ProfessorDashboard />
-            }
+            element={<ProfessorDashboard />}
           />
-
 
           <Route
             path="/professor/create-assignment"
-            element={
-              <CreateAssignment />
-            }
+            element={<CreateAssignment />}
           />
-
 
           <Route
             path="/professor/review/:id"
-            element={
-              <ProfessorAssignment
-                review
-              />
-            }
+            element={<ProfessorAssignment review />}
           />
-
 
           <Route
             path="/professor/details/:id"
-            element={
-              <ProfessorAssignment />
-            }
+            element={<ProfessorAssignment />}
           />
-
 
           <Route
             path="/professor/notifications"
-            element={
-              <ProfessorNotifications />
-            }
+            element={<ProfessorNotifications />}
           />
-
 
           <Route
             path="/professor/verify-otp"
-            element={
-              <VerifyOtp />
-            }
+            element={<VerifyOtp />}
           />
-
 
           {/* ==================================================
               HOD
@@ -271,37 +209,23 @@ function AppLayout() {
 
           <Route
             path="/hod/dashboard"
-            element={
-              <HodDashboard />
-            }
+            element={<HodDashboard />}
           />
-
 
           <Route
             path="/hod/review/:id"
-            element={
-              <HodAssignment
-                review
-              />
-            }
+            element={<HodAssignment review />}
           />
-
 
           <Route
             path="/hod/details/:id"
-            element={
-              <HodAssignment />
-            }
+            element={<HodAssignment />}
           />
-
 
           <Route
             path="/hod/notifications"
-            element={
-              <HodNotifications />
-            }
+            element={<HodNotifications />}
           />
-
 
           {/* ==================================================
               STUDENT
@@ -316,7 +240,6 @@ function AppLayout() {
             }
           />
 
-
           <Route
             path="/student/assignments"
             element={
@@ -326,28 +249,35 @@ function AppLayout() {
             }
           />
 
+          {/* ==================================================
+              SINGLE ASSIGNMENT UPLOAD
+             ================================================== */}
 
           <Route
             path="/student/assignments/upload"
             element={
               <StudentLayout>
-                <StudentUpload />
+                <UploadSingle />
               </StudentLayout>
             }
           />
 
+          {/* ==================================================
+              BULK ASSIGNMENT UPLOAD
+             ================================================== */}
 
           <Route
             path="/student/bulk-upload"
             element={
               <StudentLayout>
-                <StudentUpload
-                  bulk
-                />
+                <BulkUpload />
               </StudentLayout>
             }
           />
 
+          {/* ==================================================
+              ASSIGNMENT DETAILS
+             ================================================== */}
 
           <Route
             path="/student/assignments/:id"
@@ -358,6 +288,9 @@ function AppLayout() {
             }
           />
 
+          {/* ==================================================
+              STUDENT NOTIFICATIONS
+             ================================================== */}
 
           <Route
             path="/student/notifications"
@@ -367,7 +300,6 @@ function AppLayout() {
               </StudentLayout>
             }
           />
-
 
           {/* ==================================================
               UNKNOWN URL
@@ -391,18 +323,15 @@ function AppLayout() {
   );
 }
 
-
 // ======================================================
 // APP
 // ======================================================
 
 function App() {
-
   return (
     <BrowserRouter>
 
       <Routes>
-
 
         {/* ==================================================
             LOGIN
@@ -419,14 +348,10 @@ function App() {
           }
         />
 
-
         <Route
           path="/login"
-          element={
-            <LoginPage />
-          }
+          element={<LoginPage />}
         />
-
 
         {/* ==================================================
             ALL OTHER PAGES
@@ -434,9 +359,7 @@ function App() {
 
         <Route
           path="/*"
-          element={
-            <AppLayout />
-          }
+          element={<AppLayout />}
         />
 
       </Routes>
@@ -444,6 +367,5 @@ function App() {
     </BrowserRouter>
   );
 }
-
 
 export default App;

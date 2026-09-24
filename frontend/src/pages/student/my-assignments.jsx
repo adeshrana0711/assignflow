@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { api } from "./studentApi.js";
-import { AssignmentTable } from "./AssignmentTable.jsx";
+import AssignmentTable from "./AssignmentTable.jsx";
 
-export function StudentAssignments() {
+export default function StudentAssignments() {
 
   const [
     searchParams,

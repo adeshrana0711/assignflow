@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { api, date, dateTime, statusLabel } from "./studentApi.js";
 
-export function StudentAssignmentDetails() {
+export default function StudentAssignmentDetails() {
 
   const { id } =
     useParams();

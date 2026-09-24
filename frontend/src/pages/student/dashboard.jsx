@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { api, date, statusLabel } from "./studentApi.js";
-import { AssignmentTable } from "./AssignmentTable.jsx";
+import AssignmentTable from "./AssignmentTable.jsx";
 
-export function StudentDashboard() {
+export  default function StudentDashboard() {
 
   const [data, setData] =
     useState(null);

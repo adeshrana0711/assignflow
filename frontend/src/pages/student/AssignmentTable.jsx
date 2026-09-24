@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { date, statusLabel } from "./studentApi.js";
 
-export function AssignmentTable({
+export default function AssignmentTable({
   assignments = [],
 }) {
 

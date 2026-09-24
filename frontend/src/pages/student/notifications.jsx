@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { api, dateTime } from "./studentApi.js";
 
-export function StudentNotifications() {
+export default function StudentNotifications() {
 
   const [notifications, setNotifications] =
     useState([]);
