@@ -36,200 +36,190 @@ function LoginPage() {
 
       navigate(data.redirect);
     } catch (err) {
-      setError(err.message);
+      setError(err.message || "Unable to sign in");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="page-shell">
+    <div className="login-page">
 
-      {/* Animated background */}
-      <div className="page-backdrop">
-        <div className="floating-shape shape-one"></div>
-        <div className="floating-shape shape-two"></div>
-        <div className="floating-shape shape-three"></div>
+      {/* ==============================
+          BACKGROUND DECORATION
+      =============================== */}
+
+      <div className="background-decoration">
+        <div className="orb orb-one"></div>
+        <div className="orb orb-two"></div>
+        <div className="orb orb-three"></div>
       </div>
 
-      <main className="login-container">
 
-        {/* =====================================
-            LEFT BRANDING SECTION
-        ====================================== */}
+      {/* ==============================
+          HEADER
+      =============================== */}
 
-        <section className="login-showcase">
+      <header className="login-navbar">
 
-          <div className="showcase-content">
+        <div className="navbar-logo">
 
-            {/* Logo */}
-            <div className="brand">
-              <div className="brand-logo">
-                AF
-              </div>
+          <div className="navbar-logo-box">
+            AF
+          </div>
 
-              <div>
-                <h2>AssignFlow</h2>
-                <span>Academic Workflow System</span>
-              </div>
+          <div className="navbar-brand-text">
+            <strong>AssignFlow</strong>
+            <span>Academic Workflow</span>
+          </div>
+
+        </div>
+
+        <div className="navbar-right">
+          <span>New to AssignFlow?</span>
+
+          <button
+            type="button"
+            onClick={() => navigate("/register")}
+          >
+            Create account
+          </button>
+        </div>
+
+      </header>
+
+
+      {/* ==============================
+          MAIN CONTENT
+      =============================== */}
+
+      <main className="login-main">
+
+        {/* ==================================
+            LEFT CONTENT
+        =================================== */}
+
+        <section className="login-intro">
+
+          <div className="intro-content">
+
+            <div className="intro-badge">
+              <span className="live-dot"></span>
+              Smart Academic Platform
             </div>
 
-            {/* Main heading */}
-            <div className="showcase-heading">
+            <h1>
+              Everything your
+              <br />
+              <span>academic workflow</span>
+              <br />
+              needs.
+            </h1>
 
-              <div className="welcome-badge">
-                <span className="badge-dot"></span>
-                Smart Academic Management
-              </div>
+            <p>
+              AssignFlow connects students, professors,
+              HODs and administrators in one centralized
+              platform designed to make academic work
+              simpler, faster and more organized.
+            </p>
 
-              <h1>
-                Simplify your
-                <br />
 
-                <span>academic workflow.</span>
-              </h1>
+            {/* Feature cards */}
 
-              <p>
-                AssignFlow brings students, professors and
-                administrators together in one secure platform
-                for managing assignments, submissions and
-                academic reviews.
-              </p>
+            <div className="intro-features">
 
-            </div>
+              <div className="intro-feature">
 
-            {/* Features */}
-            <div className="feature-list">
-
-              <div className="feature-item">
-                <div className="feature-icon">
-                  <svg viewBox="0 0 24 24">
-                    <path
-                      d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.7"
-                    />
-                    <path
-                      d="M9 12l2 2 4-4"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.7"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+                <div className="feature-number">
+                  01
                 </div>
 
                 <div>
-                  <strong>Secure & Reliable</strong>
+                  <h3>Assignment Management</h3>
+
                   <p>
-                    Your academic data stays protected.
+                    Create, submit and manage assignments
+                    from one place.
                   </p>
                 </div>
+
               </div>
 
 
-              <div className="feature-item">
-                <div className="feature-icon">
-                  <svg viewBox="0 0 24 24">
-                    <path
-                      d="M4 19V5M4 19h16"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.7"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M8 15l3-4 3 2 5-6"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.7"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+              <div className="intro-feature">
+
+                <div className="feature-number">
+                  02
                 </div>
 
                 <div>
-                  <strong>Track Progress</strong>
+                  <h3>Review & Approval</h3>
+
                   <p>
-                    Monitor assignments and submissions easily.
+                    Streamline professor reviews and
+                    academic approvals.
                   </p>
                 </div>
+
               </div>
 
 
-              <div className="feature-item">
-                <div className="feature-icon">
-                  <svg viewBox="0 0 24 24">
-                    <path
-                      d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.7"
-                      strokeLinecap="round"
-                    />
-                    <circle
-                      cx="9"
-                      cy="7"
-                      r="4"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.7"
-                    />
-                    <path
-                      d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.7"
-                      strokeLinecap="round"
-                    />
-                  </svg>
+              <div className="intro-feature">
+
+                <div className="feature-number">
+                  03
                 </div>
 
                 <div>
-                  <strong>Connected Campus</strong>
+                  <h3>Track Everything</h3>
+
                   <p>
-                    One platform for every academic role.
+                    Stay updated with submissions,
+                    notifications and progress.
                   </p>
                 </div>
+
               </div>
 
             </div>
 
           </div>
 
-          <div className="showcase-footer">
-            <span>© {new Date().getFullYear()} AssignFlow</span>
-            <span>Academic Workflow System</span>
+
+          <div className="intro-bottom">
+
+            <span>
+              © {new Date().getFullYear()} AssignFlow
+            </span>
+
+            <span className="bottom-separator">
+              |
+            </span>
+
+            <span>
+              Secure Academic Workflow System
+            </span>
+
           </div>
 
         </section>
 
 
-        {/* =====================================
-            RIGHT LOGIN SECTION
-        ====================================== */}
+        {/* ==================================
+            RIGHT LOGIN
+        =================================== */}
 
-        <section className="login-section">
+        <section className="login-form-area">
 
-          <div className="login-card">
-
-            {/* Mobile logo */}
-            <div className="mobile-brand">
-              <div className="brand-logo">
-                AF
-              </div>
-
-              <span>AssignFlow</span>
-            </div>
+          <div className="login-form-container">
 
 
-            {/* Login header */}
-            <div className="login-header">
+            {/* Login heading */}
 
-              <div className="login-icon">
+            <div className="form-heading">
+
+              <div className="form-heading-icon">
+
                 <svg viewBox="0 0 24 24">
                   <rect
                     x="4"
@@ -249,37 +239,39 @@ function LoginPage() {
                     strokeWidth="1.7"
                     strokeLinecap="round"
                   />
-
-                  <circle
-                    cx="12"
-                    cy="15"
-                    r="1"
-                    fill="currentColor"
-                  />
                 </svg>
+
               </div>
 
               <div>
-                <p className="login-eyebrow">
+
+                <span>
+                  ACCOUNT ACCESS
+                </span>
+
+                <h2>
                   Welcome back
-                </p>
+                </h2>
 
-                <h1>Sign in to AssignFlow</h1>
-
-                <p className="login-description">
-                  Access your academic workspace and continue
-                  where you left off.
-                </p>
               </div>
 
             </div>
 
 
+            <p className="form-description">
+              Sign in to access your AssignFlow dashboard
+              and continue managing your academic workflow.
+            </p>
+
+
             {/* Error */}
+
             {error && (
-              <div className="api-error" role="alert">
+
+              <div className="login-error">
 
                 <svg viewBox="0 0 24 24">
+
                   <circle
                     cx="12"
                     cy="12"
@@ -291,6 +283,7 @@ function LoginPage() {
 
                   <path
                     d="M12 8v5"
+                    fill="none"
                     stroke="currentColor"
                     strokeWidth="1.7"
                     strokeLinecap="round"
@@ -299,34 +292,38 @@ function LoginPage() {
                   <circle
                     cx="12"
                     cy="16.5"
-                    r=".8"
+                    r="0.8"
                     fill="currentColor"
                   />
+
                 </svg>
 
                 <span>{error}</span>
 
               </div>
+
             )}
 
 
             {/* Form */}
+
             <form
               className="login-form"
               onSubmit={handleSubmit}
             >
 
               {/* Email */}
-              <div className="form-field">
+
+              <div className="form-group">
 
                 <label htmlFor="email">
                   Email address
                 </label>
 
-                <div className="input-group">
+                <div className="input-wrapper">
 
                   <svg
-                    className="input-icon"
+                    className="field-icon"
                     viewBox="0 0 24 24"
                   >
                     <rect
@@ -345,8 +342,6 @@ function LoginPage() {
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="1.7"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
                     />
                   </svg>
 
@@ -354,7 +349,7 @@ function LoginPage() {
                     id="email"
                     name="email"
                     type="email"
-                    placeholder="Enter your email address"
+                    placeholder="Enter your email"
                     autoComplete="email"
                     required
                   />
@@ -365,9 +360,10 @@ function LoginPage() {
 
 
               {/* Password */}
-              <div className="form-field">
 
-                <div className="password-label">
+              <div className="form-group">
+
+                <div className="label-row">
 
                   <label htmlFor="password">
                     Password
@@ -375,20 +371,21 @@ function LoginPage() {
 
                   <button
                     type="button"
-                    className="forgot-button"
-                    onClick={() => {
-                      navigate("/forgot-password");
-                    }}
+                    onClick={() =>
+                      navigate("/forgot-password")
+                    }
+                    className="forgot-password"
                   >
                     Forgot password?
                   </button>
 
                 </div>
 
-                <div className="input-group">
+
+                <div className="input-wrapper">
 
                   <svg
-                    className="input-icon"
+                    className="field-icon"
                     viewBox="0 0 24 24"
                   >
                     <rect
@@ -424,28 +421,25 @@ function LoginPage() {
                     required
                   />
 
+
                   <button
                     type="button"
-                    className="password-toggle"
+                    className="show-password"
                     onClick={() =>
                       setShowPassword(
-                        (previous) => !previous
+                        (prev) => !prev
                       )
-                    }
-                    aria-label={
-                      showPassword
-                        ? "Hide password"
-                        : "Show password"
                     }
                   >
 
                     {showPassword ? (
+
                       <svg viewBox="0 0 24 24">
                         <path
                           d="M3 3l18 18"
                           fill="none"
                           stroke="currentColor"
-                          strokeWidth="1.8"
+                          strokeWidth="1.7"
                           strokeLinecap="round"
                         />
 
@@ -453,15 +447,7 @@ function LoginPage() {
                           d="M10.6 10.6a2 2 0 002.8 2.8"
                           fill="none"
                           stroke="currentColor"
-                          strokeWidth="1.8"
-                        />
-
-                        <path
-                          d="M9.9 5.2A10.8 10.8 0 0112 5c5 0 8.5 4.5 9.5 7a13 13 0 01-3.1 4.3"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.6"
-                          strokeLinecap="round"
+                          strokeWidth="1.7"
                         />
 
                         <path
@@ -471,9 +457,20 @@ function LoginPage() {
                           strokeWidth="1.6"
                           strokeLinecap="round"
                         />
+
+                        <path
+                          d="M9.9 5.2A10.8 10.8 0 0112 5c5 0 8.5 4.5 9.5 7a13 13 0 01-3.1 4.3"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.6"
+                          strokeLinecap="round"
+                        />
                       </svg>
+
                     ) : (
+
                       <svg viewBox="0 0 24 24">
+
                         <path
                           d="M2.5 12S6 5 12 5s9.5 7 9.5 7-3.5 7-9.5 7-9.5-7-9.5-7z"
                           fill="none"
@@ -489,7 +486,9 @@ function LoginPage() {
                           stroke="currentColor"
                           strokeWidth="1.7"
                         />
+
                       </svg>
+
                     )}
 
                   </button>
@@ -500,9 +499,10 @@ function LoginPage() {
 
 
               {/* Remember */}
+
               <div className="remember-row">
 
-                <label className="remember-check">
+                <label>
 
                   <input
                     type="checkbox"
@@ -519,34 +519,47 @@ function LoginPage() {
 
 
               {/* Submit */}
+
               <button
                 type="submit"
-                className="submit-button"
+                className="login-button"
                 disabled={loading}
               >
 
                 {loading ? (
+
                   <>
                     <span className="spinner"></span>
                     Signing in...
                   </>
+
                 ) : (
+
                   <>
-                    <span>
-                      Sign in to Dashboard
-                    </span>
+                    Sign in to dashboard
 
                     <svg viewBox="0 0 24 24">
+
                       <path
-                        d="M5 12h14M13 6l6 6-6 6"
+                        d="M5 12h14"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                      />
+
+                      <path
+                        d="M13 6l6 6-6 6"
                         fill="none"
                         stroke="currentColor"
                         strokeWidth="1.8"
                         strokeLinecap="round"
                         strokeLinejoin="round"
                       />
+
                     </svg>
                   </>
+
                 )}
 
               </button>
@@ -555,45 +568,61 @@ function LoginPage() {
 
 
             {/* Security */}
-            <div className="security-note">
 
-              <svg viewBox="0 0 24 24">
-                <path
-                  d="M12 3l7 3v5c0 4.5-2.7 8-7 10-4.3-2-7-5.5-7-10V6l7-3z"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.6"
-                  strokeLinejoin="round"
-                />
+            <div className="secure-message">
 
-                <path
-                  d="M9 12l2 2 4-4"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.6"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+              <div className="secure-icon">
 
-              <span>
-                Your connection is secure and your account
-                information is protected.
-              </span>
+                <svg viewBox="0 0 24 24">
+
+                  <path
+                    d="M12 3l7 3v5c0 4.5-2.7 8-7 10-4.3-2-7-5.5-7-10V6l7-3z"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                  />
+
+                  <path
+                    d="M9 12l2 2 4-4"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+
+                </svg>
+
+              </div>
+
+              <div>
+                <strong>
+                  Secure sign in
+                </strong>
+
+                <span>
+                  Your account information is protected
+                  using secure authentication.
+                </span>
+              </div>
 
             </div>
 
 
-            <div className="login-footer">
+            {/* Bottom */}
+
+            <div className="form-footer">
 
               <span>
-                © {new Date().getFullYear()} AssignFlow System
+                © {new Date().getFullYear()} AssignFlow
               </span>
 
-              <span className="footer-dot">•</span>
+              <span>
+                Privacy
+              </span>
 
               <span>
-                Secure Academic Platform
+                Terms
               </span>
 
             </div>
